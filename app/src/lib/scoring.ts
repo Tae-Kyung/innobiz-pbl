@@ -32,7 +32,7 @@ export function calculateDiagnosis(scores: DiagnosisScore[]): DiagnosisResult {
 
   const allScores = scores.map(s => s.score)
   const totalAverage = allScores.length > 0 ? allScores.reduce((a, b) => a + b, 0) / 32 : 0
-  const score100 = (totalAverage - 1) / 4 * 100
+  const score100 = totalAverage / 5 * 100
   const { level, levelName } = getAXLevel(score100)
 
   return { areaScores, totalAverage, score100, level, levelName }
